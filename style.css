@@ -14,3 +14,11 @@ body {
     flex-wrap: wrap;
     border: 2px solid black;
 }
+
+.square {
+    width: 40px;
+    height: 40px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    background-color: white;
+}
