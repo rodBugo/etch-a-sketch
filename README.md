@@ -56,4 +56,4 @@ Through building this project, I practiced:
 * Click and drag on the grid to draw
 * Use the "New Grid" button to resize the sketchpad
 * Use the "Clear" button to reset the drawing surface
-* Link: [text](https://rodbugo.github.io/etch-a-sketch/)
+* Link: [https://rodbugo.github.io/etch-a-sketch/](https://rodbugo.github.io/etch-a-sketch/)
