@@ -1,5 +1,6 @@
 const container = document.getElementById("main-container");
 const button = document.getElementById("resize-button");
+const clearBtn = document.getElementById("clearBtn");
 
 function createGrid(size) {
     container.innerHTML = "";
@@ -51,5 +52,18 @@ button.addEventListener("click", () => {
         alert("Please enter a number between 1 and 100.");
     }
 });
+
+clearBtn.addEventListener("click", () => {
+    const squares = document.querySelectorAll(".square");
+
+    squares.forEach(square => {
+        square.style.backgroundColor = "white";
+        square.dataset.opacity = 0;
+
+        delete square.dataset.r;
+        delete square.dataset.g;
+        delete square.dataset.b;
+    })
+})
 
 createGrid(16);
