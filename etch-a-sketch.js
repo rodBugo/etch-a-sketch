@@ -2,6 +2,16 @@ const container = document.getElementById("main-container");
 const button = document.getElementById("resize-button");
 const clearBtn = document.getElementById("clearBtn");
 
+let mouseDown = false;
+
+document.addEventListener("mousedown", () => {
+    mouseDown = true;
+});
+
+document.addEventListener("mouseup", () => {
+    mouseDown = false;
+});
+
 function createGrid(size) {
     container.innerHTML = "";
 
@@ -15,7 +25,32 @@ function createGrid(size) {
         square.style.width = `${100 / size}%`;
         square.style.height = `${100 / size}%`;
 
+        square.addEventListener("mousedown", () => {
+
+            let opacity = Number(square.dataset.opacity) || 0;
+
+            opacity += 0.1;
+
+            if (opacity > 1) opacity = 1;
+
+            square.dataset.opacity = opacity;
+
+            if (!square.dataset.r) {
+                square.dataset.r = Math.floor(Math.random() * 256);
+                square.dataset.g = Math.floor(Math.random() * 256);
+                square.dataset.b = Math.floor(Math.random() * 256);
+            }
+
+            const r = square.dataset.r;
+            const g = square.dataset.g;
+            const b = square.dataset.b;
+
+            square.style.backgroundColor = `rgba(${r}, ${g}, ${b}, ${opacity})`;
+        });
+
         square.addEventListener("mouseover", () => {
+            if (!mouseDown) return;
+
             let opacity = Number(square.dataset.opacity) || 0;
 
             opacity += 0.1;
