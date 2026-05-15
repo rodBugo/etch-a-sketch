@@ -15,11 +15,25 @@ function createGrid(size) {
         square.style.height = `${squareSize}px`;
 
         square.addEventListener("mouseover", () => {
-            const r = Math.floor(Math.random() * 256);
-            const g = Math.floor(Math.random() * 256);
-            const b = Math.floor(Math.random() * 256);
+            let opacity = Number(square.dataset.opacity) || 0;
 
-            square.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+            opacity += 0.1;
+
+            if (opacity > 1) opacity = 1;
+
+            square.dataset.opacity = opacity;
+
+            if (!square.dataset.r) {
+                square.dataset.r = Math.floor(Math.random() * 256);
+                square.dataset.g = Math.floor(Math.random() * 256);
+                square.dataset.b = Math.floor(Math.random() * 256);
+            }
+
+            const r = square.dataset.r;
+            const g = square.dataset.g;
+            const b = square.dataset.b;
+
+            square.style.backgroundColor = `rgba(${r}, ${g}, ${b}, ${opacity})`;
         });
 
         container.appendChild(square);
