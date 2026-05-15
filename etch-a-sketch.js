@@ -11,8 +11,8 @@ function createGrid(size) {
 
         square.classList.add("square");
 
-        square.style.width = `${squareSize}px`;
-        square.style.height = `${squareSize}px`;
+        square.style.width = `${100 / size}%`;
+        square.style.height = `${100 / size}%`;
 
         square.addEventListener("mouseover", () => {
             let opacity = Number(square.dataset.opacity) || 0;
